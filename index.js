@@ -2,6 +2,10 @@ var fs = require('fs'),
     chalk = require('chalk');
 
 module.exports = function (options) {
+  if (!options) {
+    throw Error('No config options are given.');
+  }
+
   if (!options.src || options.src.length === 0) {
     throw Error('No source folder given.');
   }
