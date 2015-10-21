@@ -1,0 +1,15 @@
+{
+  "name": "files-to-sass-maps",
+  "version": "0.1.0",
+  "description": "Read a folder, convert file contents to sass maps.",
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "fs": "^0.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jelmer de Maat",
+  "license": "MIT"
+}
