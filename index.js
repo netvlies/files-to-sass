@@ -18,7 +18,7 @@ module.exports = function (options) {
     var fileName = file.replace(/\.[^/.]+$/, ''),
         fileContents = fs.readFileSync(options.src + file, 'utf8');
 
-    options.fileList[fileName] = fileContents.replace(/\n/gi, '');
+    options.fileList[fileName] = fileContents.replace(/\n|\r/gi, '');
     options.content += '$' + fileName + ': \''  + options.fileList[fileName] + '\'\;\n';
 
     if(options.debug) {
