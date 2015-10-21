@@ -10,6 +10,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jelmerdemaat/files-to-sass-maps.git"
+  },
   "author": "Jelmer de Maat",
   "license": "MIT"
 }
