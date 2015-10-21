@@ -1,6 +1,6 @@
 {
   "name": "files-to-sass-maps",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Read a folder, convert file contents to sass maps.",
   "main": "index.js",
   "dependencies": {
