@@ -40,8 +40,8 @@ gulp.task('import', function () {
         sassMap: true,
         sassMapName: 'MyFiles',
         debug: true
-    });
-}, callback);
+    }, callback);
+});
 ```
 
 Example output, using SVG's as input, would be:
