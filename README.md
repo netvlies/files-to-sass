@@ -20,6 +20,8 @@ var filesToSass = require('files-to-sass');
 filesToSass({
     src: '/path/to/source/folder/',
     dest: '/path/to/dest/file.scss',
+    useSassMap: true,           // default is false
+    sassMapName: 'MyFiles',     // defaults to: 'fileMap'
     debug: true
 });
 ```
@@ -33,6 +35,8 @@ gulp.task('import', function () {
     filesToSass({
         src: '/path/to/source/folder/',
         dest: '/path/to/dest/file.scss',
+        useSassMap: true,
+        sassMapName: 'MyFiles',
         debug: true
     });
 });
@@ -46,6 +50,15 @@ $icon-download: '<svg width="12" height="12" viewBox="0 0 12 12"><g fill="#000".
 $icon-arrow-right: '<svg width="15" height="15" viewBox="0 0 15 15"><g fill="#fd0"...';
 ```
 
+With SassMap:
+```
+$fileMap: (
+    logo: '<svg width="58" height="56" viewBox="0 0 58 56"><g fill="#163962"...';
+    icon-download: '<svg width="12" height="12" viewBox="0 0 12 12"><g fill="#000"...';
+    icon-arrow-right: '<svg width="15" height="15" viewBox="0 0 15 15"><g fill="#fd0"...';
+);
+```
+
 #### Options
 
 ##### options.src
@@ -57,6 +70,11 @@ Required. Sets the path and name of the destination Sass file, including extensi
 ##### options.debug
 Optional. Set to true if you want to see which files are being processed.
 
+##### options.useSassMap
+Optional. Set to true if you want to output a Sass map.
+
+##### options.sassMapName
+Optional. String to be use as the Sass map variable name the $ will be prepended.
 
 ### Todo
 
