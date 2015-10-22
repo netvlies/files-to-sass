@@ -12,6 +12,8 @@ Converts a list of files to (a map of) Sass variables with their content.
 
 ### Configuration
 
+`filesToSass(options, callback(Object fileList));`
+
 Use as follows:
 
 ```
@@ -23,7 +25,7 @@ filesToSass({
     sassMap: true,           
     sassMapName: 'MyFiles',
     debug: true
-});
+}, callback);
 ```
 
 Using [Gulp](http://gulpjs.com) it's possible to access this module directly:
@@ -39,7 +41,7 @@ gulp.task('import', function () {
         sassMapName: 'MyFiles',
         debug: true
     });
-});
+}, callback);
 ```
 
 Example output, using SVG's as input, would be:
@@ -84,5 +86,6 @@ Default: `fileMap`
 
 ### Todo
 
-* Add ability to use files as source input.
 * ~~Add option to use maps in stead of plain variables.~~ Thanks @sebsmi
+* Add ability to use files as source input.
+* Add the output folder if it doesn't exist already.
