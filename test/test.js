@@ -9,19 +9,21 @@ filesToSass({
 }, function(fileList) {
     console.log('\nSuccesfully executed with normal variables, callback with file list object:\n');
     console.log(fileList);
+
+    runSecondTest();
 });
 
-console.log('\nRunning with result set to Sass map...\n');
+function runSecondTest() {
+  console.log('\nRunning with result set to Sass map...\n');
 
-filesToSass({
+  filesToSass({
     src: 'test/input/',
     dest: 'test/output/sassmap.scss',
     sassMap: true,
     sassMapName: 'files',
     debug: true
-}, function(fileList) {
+  }, function(fileList) {
     console.log('\nSuccesfully executed with Sass map, callback with file list object:\n');
     console.log(fileList);
-});
-
-console.log('\nDone testing.');
+  });
+}

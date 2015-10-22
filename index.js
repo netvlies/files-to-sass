@@ -1,5 +1,6 @@
 var fs = require('fs'),
-    chalk = require('chalk');
+    chalk = require('chalk'),
+    parsePath = require('parse-filepath');
 
 function filesAsVariables(fileName, fileContents, options, count) {
   return '$' + fileName + ': \''  + fileContents + '\'\;\n';
@@ -21,7 +22,7 @@ var options = {
   sassMapName: 'fileMap'
 };
 
-module.exports = function (options, callback) {
+module.exports = function (options, cb) {
   if (!options) {
     throw Error('No config options are given.');
   }
@@ -41,12 +42,24 @@ module.exports = function (options, callback) {
   options.files = fs.readdirSync(options.src);
   options.fileList = {};
   options.content = '';
+  options.destPath = parsePath(options.dest).dirname;
 
-  // TODO: Fix this.
-  // if(!fs.existsSync(options.dest)) {
-  //   fs.mkdirSync(options.dest);
-  // }
+  fs.stat(options.destPath, function(err, stats) {
+    if(!err && stats.isDirectory()) {
+      createSassFile(options, cb);
+    } else {
+      fs.mkdir(options.destPath, function(err) {
+        if(options.debug) {
+          log('Created directory ' + chalk.yellow(options.destPath));
+        }
+        
+        createSassFile(options, cb);
+      });
+    }
+  });
+};
 
+function createSassFile(options, cb) {
   options.files.forEach(function(file, i) {
     var fileName = file.replace(/\.[^/.]+$/, ''),
         fileContents = fs.readFileSync(options.src + file, 'utf8');
@@ -55,7 +68,7 @@ module.exports = function (options, callback) {
     options.content += fileAs(fileName, options.fileList[fileName], options, i);
 
     if(options.debug) {
-      console.log('Processed file ' + chalk.cyan(file));
+      log('Processed file ' + chalk.cyan(file));
     }
   });
 
@@ -66,12 +79,16 @@ module.exports = function (options, callback) {
       throw Error('\nWriting to ' + chalk.cyan(options.dest) + ' didn\'t work out. :(');
     } else {
       if(options.debug) {
-        console.log('\nWriting to ' + chalk.cyan(options.dest) + ' succesfull!');
+        log('Writing to ' + chalk.cyan(options.dest) + ' succesfull!');
       }
 
-      if(callback) {
-        callback(options.fileList);
+      if(cb) {
+        cb(options.fileList);
       }
     }
   });
-};
+}
+
+function log(stuff) {
+  console.log(chalk.grey('[files-to-sass] ') + stuff);
+}
