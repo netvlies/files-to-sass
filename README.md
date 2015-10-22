@@ -50,7 +50,7 @@ $icon-download: '<svg width="12" height="12" viewBox="0 0 12 12"><g fill="#000".
 $icon-arrow-right: '<svg width="15" height="15" viewBox="0 0 15 15"><g fill="#fd0"...';
 ```
 
-With SassMap:
+And using the Sass map functionality:
 ```
 $fileMap: (
     logo: '<svg width="58" height="56" viewBox="0 0 58 56"><g fill="#163962"...';
