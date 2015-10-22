@@ -59,20 +59,19 @@ module.exports = function (options, callback) {
     }
   });
 
-  options.content = (options.sassMap) ? '$' + options.sassMapName + ': (\n' + options.content + ');' : options.content;
+  options.content = (options.sassMap) ? '$' + options.sassMapName + ': (\n' + options.content + ');\n' : options.content;
 
   fs.writeFile(options.dest, options.content, function(err, data) {
     if(err) {
-      console.log('\nWriting to ' + chalk.cyan(options.dest) + ' didn\'t work out. :(');
-      return;
-    }
+      throw Error('\nWriting to ' + chalk.cyan(options.dest) + ' didn\'t work out. :(');
+    } else {
+      if(options.debug) {
+        console.log('\nWriting to ' + chalk.cyan(options.dest) + ' succesfull!');
+      }
 
-    if(options.debug) {
-      console.log('\nWriting to ' + chalk.cyan(options.dest) + ' succesfull!');
-    }
-
-    if(callback) {
-      callback(options.fileList);
+      if(callback) {
+        callback(options.fileList);
+      }
     }
   });
 };
