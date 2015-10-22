@@ -1,6 +1,6 @@
 {
   "name": "files-to-sass",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Converts a list of files to (a map of) Sass variables with their content.",
   "main": "index.js",
   "dependencies": {
