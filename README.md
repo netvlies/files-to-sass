@@ -79,4 +79,4 @@ Optional. String to be use as the Sass map variable name the $ will be prepended
 ### Todo
 
 * Add ability to use files as source input.
-* Add option to use maps in stead of plain variables.
+* ~~Add option to use maps in stead of plain variables.~~ Thanks @sebsmi
