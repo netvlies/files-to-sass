@@ -86,6 +86,7 @@ Default: `fileMap`
 
 ### Todo
 
-* ~~Add option to use maps in stead of plain variables.~~ Thanks @sebsmi
-* Add ability to use files as source input.
+* Switch to async module structure.
 * Add the output folder if it doesn't exist already.
+* Add ability to use files as source input.
+* ~~Add option to use maps in stead of plain variables.~~ Thanks @sebsmi
