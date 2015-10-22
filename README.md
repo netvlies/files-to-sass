@@ -1,6 +1,6 @@
-# Files to Sass maps
+# Files to Sass
 
-Converts a list of files to list of Sass variables with their content.
+Converts a list of files to (a map of) Sass variables with their content.
 
 ### Early beta
 
@@ -8,4 +8,4 @@ Converts a list of files to list of Sass variables with their content.
 
 ### Todo
 
-* Really use maps in stead of plain variables.
+* Add option to use maps in stead of plain variables.

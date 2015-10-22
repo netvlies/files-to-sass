@@ -1,7 +1,7 @@
 {
-  "name": "files-to-sass-maps",
+  "name": "files-to-sass",
   "version": "0.1.3",
-  "description": "Read a folder, convert file contents to sass maps.",
+  "description": "Converts a list of files to (a map of) Sass variables with their content.",
   "main": "index.js",
   "dependencies": {
     "chalk": "^1.1.1",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:jelmerdemaat/files-to-sass-maps.git"
+    "url": "git@github.com:jelmerdemaat/files-to-sass.git"
   },
   "author": "Jelmer de Maat",
   "license": "MIT"
