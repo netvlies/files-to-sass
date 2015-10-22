@@ -74,7 +74,7 @@ Optional. Set to true if you want to see which files are being processed.
 Optional. Set to true if you want to output a Sass map.
 
 ##### options.sassMapName
-Optional. String to be use as the Sass map variable name the $ will be prepended.
+Optional. String to be used as the Sass map variable name. The `$` will be prepended.
 
 ### Todo
 
