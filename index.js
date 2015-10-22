@@ -1,7 +1,20 @@
 var fs = require('fs'),
     chalk = require('chalk');
+    sassMapName = 'fileMap'
+
+function filesAsVariables(fileName, fileContents) {
+  return '$' + fileName + ': \''  + fileContents + '\'\;\n';
+}
+
+function filesAsSassMap(fileName, fileContents) {
+  return '  ' + fileName + ': \''  + fileContents + '\'\n';
+}
+
 
 module.exports = function (options) {
+  var useSassMap = false,
+    fileAs = filesAsVariables;
+
   if (!options) {
     throw Error('No config options are given.');
   }
@@ -14,6 +27,15 @@ module.exports = function (options) {
     throw Error('No destination file given.');
   }
 
+  if (options.useSassMap && options.useSassMap === true) {
+    useSassMap = true;
+    fileAs = filesAsSassMap;
+  }
+
+  if(options.sassMapName && options.sassMapName.length > 0) {
+    sassMapName = options.sassMapName;
+  }
+
   options.files = fs.readdirSync(options.src);
   options.fileList = {};
   options.content = '';
@@ -23,13 +45,14 @@ module.exports = function (options) {
         fileContents = fs.readFileSync(options.src + file, 'utf8');
 
     options.fileList[fileName] = fileContents.replace(/\n|\r/gi, '');
-    options.content += '$' + fileName + ': \''  + options.fileList[fileName] + '\'\;\n';
+    options.content +=  fileAs(fileName,options.fileList[fileName]);
 
     if(options.debug) {
       console.log('Processing file ' + chalk.cyan(file));
     }
   });
 
+  options.content = (useSassMap) ? '$' + sassMapName + ': (\n' + options.content + ');' : options.content;
 
   fs.writeFile(options.dest, options.content, function(err, data) {
     if(err) {
