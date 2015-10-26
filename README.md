@@ -6,9 +6,7 @@ Converts a list of files to (a map of) Sass variables with their content.
 [NPM](https://www.npmjs.com/package/files-to-sass) |
 [@jelmerdemaat](https://twitter.com/jelmerdemaat)
 
-### Early beta
-
-**Don't use** if you're not me or Michel! Yet.
+**Early beta**: see [todo](#todo) for functionality that's not yet included.
 
 ### Configuration
 
@@ -22,7 +20,7 @@ var filesToSass = require('files-to-sass');
 filesToSass({
     src: '/path/to/source/folder/',
     dest: '/path/to/dest/file.scss',
-    sassMap: true,           
+    sassMap: true,
     sassMapName: 'MyFiles',
     debug: true
 }, callback);
