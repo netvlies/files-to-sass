@@ -21,6 +21,7 @@ function runSecondTest() {
     dest: 'test/output/sassmap.scss',
     sassMap: true,
     sassMapName: 'files',
+    imageSizes: true,
     debug: true
   }, function(fileList) {
     console.log('\nSuccesfully executed with Sass map, callback with file list object:\n');
