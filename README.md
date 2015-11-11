@@ -6,7 +6,7 @@ Converts a list of files to (a map of) Sass variables with their content.
 [NPM](https://www.npmjs.com/package/files-to-sass) |
 [@jelmerdemaat](https://twitter.com/jelmerdemaat)
 
-**Early beta**: see [todo](#todo) for functionality that's not yet included.
+Early beta: see [todo](#todo) for functionality that's not yet included.
 
 ### Configuration
 
