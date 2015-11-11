@@ -1,16 +1,42 @@
 var fs = require('fs'),
     chalk = require('chalk'),
-    parsePath = require('parse-filepath');
+    parsePath = require('parse-filepath'),
+    imageSize = require('image-size');
 
-function filesAsVariables(fileName, fileContents, options, count) {
+function filesAsVariables(file, fileName, fileContents, options, count) {
   return '$' + fileName + ': \''  + fileContents + '\'\;\n';
 }
 
-function filesAsSassMap(fileName, fileContents, options, count) {
+function filesAsSassMap(file, fileName, fileContents, options, count) {
+  var ext,
+      allowedExt,
+      size = '';
+
+  fileContents = '\'' + fileContents + '\'';
+
+  if(options.imageSizes) {
+    ext = parsePath(file).extname.replace('.', ''),
+        allowedExt = [
+          'bmp',
+          'gif',
+          'jpeg',
+          'png',
+          'psd',
+          'tiff',
+          'webp',
+          'svg'
+        ];
+
+    if(allowedExt.indexOf(ext) >= 0) {
+      size = imageSize(options.src + file);
+      fileContents = size.width + ' ' + size.height + ' ' + fileContents;
+    }
+  }
+
   if(count === options.files.length - 1) {
-    return '\t' + fileName + ': \''  + fileContents + '\'\n';
+    return '\t' + fileName + ': '  + fileContents + '\n';
   } else {
-    return '\t' + fileName + ': \''  + fileContents + '\'\,\n';
+    return '\t' + fileName + ': '  + fileContents + '\,\n';
   }
 }
 
@@ -52,7 +78,6 @@ module.exports = function (options, cb) {
         if(options.debug) {
           log('Created directory ' + chalk.yellow(options.destPath));
         }
-        
         createSassFile(options, cb);
       });
     }
@@ -61,11 +86,14 @@ module.exports = function (options, cb) {
 
 function createSassFile(options, cb) {
   options.files.forEach(function(file, i) {
+    /// Exclude dotfiles:
+    if(/^\..*/.test(file)) return;
+
     var fileName = file.replace(/\.[^/.]+$/, ''),
         fileContents = fs.readFileSync(options.src + file, 'utf8');
 
     options.fileList[fileName] = fileContents.replace(/\n|\r/gi, '');
-    options.content += fileAs(fileName, options.fileList[fileName], options, i);
+    options.content += fileAs(file, fileName, options.fileList[fileName], options, i);
 
     if(options.debug) {
       log('Processed file ' + chalk.cyan(file));
