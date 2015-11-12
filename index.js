@@ -88,6 +88,8 @@ function createSassFile(options, cb) {
   options.files.forEach(function(file, i) {
     /// Exclude dotfiles:
     if(/^\..*/.test(file)) return;
+    /// Exclude folders:
+    if(!fs.lstatSync(options.src + file).isFile()) return;
 
     var fileName = file.replace(/\.[^/.]+$/, ''),
         fileContents = fs.readFileSync(options.src + file, 'utf8');
