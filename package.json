@@ -6,8 +6,8 @@
   "dependencies": {
     "chalk": "^1.1.1",
     "fs": "^0.0.2",
-    "parse-filepath": "^0.6.3",
-    "image-size": "^0.3.5"
+    "image-size": "^0.4.0",
+    "parse-filepath": "^0.6.3"
   },
   "scripts": {
     "test": "node test/test.js"
