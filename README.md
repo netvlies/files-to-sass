@@ -22,7 +22,8 @@ filesToSass({
     dest: '/path/to/dest/file.scss',
     sassMap: true,
     sassMapName: 'MyFiles',
-    debug: true
+    base64: true
+    debug: true,
 }, callback);
 ```
 
@@ -37,7 +38,8 @@ gulp.task('import', function () {
         dest: '/path/to/dest/file.scss',
         sassMap: true,
         sassMapName: 'MyFiles',
-        debug: true
+        base64: true
+        debug: true,
     }, callback);
 });
 ```
@@ -67,25 +69,30 @@ Required. Sets the path to the source folder.
 ##### options.dest
 Required. Sets the path and name of the destination Sass file, including extension.
 
-##### options.debug
-Optional. Set to true if you want to see which files are being processed.
-
-Default: `false`
-
 ##### options.sassMap
 Optional. Set to true if you want to output a Sass map.
 
-Default: `false`
+Default: ```false```
 
 ##### options.sassMapName
 Optional. String to be used as the Sass map variable name. The `$` will be prepended.
 
-Default: `fileMap`
+Default: ```fileMap```
+
+##### options.base64
+Optional. Convert strings to Base64
+
+Default: ```false```
 
 ##### options.imageSizes
 Optional. Only available when using Sass maps and (SVG) images. Returns width and height in addition to the file contents.
 
-Default: `false`
+Default: ```false```
+
+##### options.debug
+Optional. Set to true if you want to see which files are being processed.
+
+Default: ```false```
 
 ### Todo
 
