@@ -7,48 +7,28 @@
     "chalk": "^1.1.1",
     "fs": "^0.0.2",
     "image-size": "^0.4.0",
-    "parse-filepath": "^0.6.3"
+    "parse-filepath": "^0.6.3",
+    "deepmerge": "^1.3.0"
   },
   "scripts": {
     "test": "node test/test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/jelmerdemaat/files-to-sass.git"
+    "url": "git+ssh://git@github.com/netvlies/files-to-sass.git"
   },
   "author": {
     "name": "Jelmer de Maat"
   },
   "license": "MIT",
-  "gitHead": "7ed89d6f2b74dd8569ba6170e74face8c8b907b3",
   "bugs": {
-    "url": "https://github.com/jelmerdemaat/files-to-sass/issues"
+    "url": "https://github.com/netvlies/files-to-sass/issues"
   },
-  "homepage": "https://github.com/jelmerdemaat/files-to-sass#readme",
-  "_id": "files-to-sass@1.0.4",
-  "_shasum": "2a02dd90d2ba60283b36fa60cf58fef1e7c1be9f",
-  "_from": "files-to-sass@*",
-  "_npmVersion": "3.5.3",
-  "_nodeVersion": "5.5.0",
-  "_npmUser": {
-    "name": "jelmer",
-    "email": "post@jelmerdemaat.nl"
-  },
-  "dist": {
-    "shasum": "2a02dd90d2ba60283b36fa60cf58fef1e7c1be9f",
-    "tarball": "https://registry.npmjs.org/files-to-sass/-/files-to-sass-1.0.4.tgz"
-  },
+  "homepage": "https://github.com/netvlies/files-to-sass#readme",
   "maintainers": [
     {
       "name": "jelmer",
       "email": "post@jelmerdemaat.nl"
     }
-  ],
-  "_npmOperationalInternal": {
-    "host": "packages-13-west.internal.npmjs.com",
-    "tmp": "tmp/files-to-sass-1.0.4.tgz_1456958004625_0.5474587308708578"
-  },
-  "directories": {},
-  "_resolved": "https://registry.npmjs.org/files-to-sass/-/files-to-sass-1.0.4.tgz",
-  "readme": "ERROR: No README data found!"
+  ]
 }
