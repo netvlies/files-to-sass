@@ -1,5 +1,7 @@
 # Files to Sass
 
+[![NPM version](http://img.shields.io/npm/v/files-to-sass.svg)](https://www.npmjs.org/package/files-to-sass) 
+
 Converts a list of files to (a map of) Sass variables with their content.
 
 [GitHub](https://github.com/jelmerdemaat/files-to-sass) |
